@@ -83,6 +83,7 @@ If you want to improve this project, feel free to fork and contribute.
 
 For stitching services or queries:  
 📱 **WhatsApp:** **9776940804**
+
 📧 **Email: jyotshnasilaighar@gmail.com**
 
 ---
