@@ -33,8 +33,8 @@ The goal is to build a strong online presence and help beginners learn stitching
 
 ## 🛠️ Tech Stack
 
-- HTML5  
-- CSS3  
+- HTML  
+- CSS
 - JavaScript  
 - Google AI Studio (for UI generation)
 
@@ -43,11 +43,14 @@ The goal is to build a strong online presence and help beginners learn stitching
 ## 📂 Project Structure
 
 jyotshna-silai-ghar/
-│── index.html
-│── style.css
-│── script.js
-│── images/
 
+│── index.html
+
+│── style.css
+
+│── script.js
+
+│── images/
 
 ---
 
