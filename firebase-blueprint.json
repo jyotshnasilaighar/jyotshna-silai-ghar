@@ -1,0 +1,79 @@
+{
+  "entities": {
+    "users": {
+      "title": "User Profile",
+      "description": "User profile information including role and contact details.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Unique user ID from Firebase Auth." },
+        "displayName": { "type": "string", "description": "User's display name." },
+        "email": { "type": "string", "format": "email", "description": "User's email address." },
+        "photoURL": { "type": "string", "description": "User's profile picture URL." },
+        "role": { "type": "string", "enum": ["admin", "customer"], "description": "User role." },
+        "phoneNumber": { "type": "string", "description": "User's contact number." },
+        "wishlist": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Array of GalleryItem IDs."
+        },
+        "measurements": {
+          "type": "object",
+          "properties": {
+            "chest": { "type": "number" },
+            "waist": { "type": "number" },
+            "hips": { "type": "number" },
+            "length": { "type": "number" },
+            "shoulder": { "type": "number" },
+            "sleeve": { "type": "number" }
+          }
+        }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "orders": {
+      "title": "Stitching Order",
+      "description": "Details of a tailoring order.",
+      "type": "object",
+      "properties": {
+        "orderId": { "type": "string" },
+        "customerUid": { "type": "string" },
+        "customerName": { "type": "string" },
+        "type": { "type": "string", "enum": ["Blouse", "Suit", "Lehenga", "Kurti", "Other"] },
+        "status": { "type": "string", "enum": ["Pending", "Cutting", "Stitching", "Ready", "Delivered"] },
+        "description": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "price": { "type": "number" },
+        "dueDate": { "type": "string", "format": "date" }
+      },
+      "required": ["customerUid", "type", "status", "createdAt"]
+    },
+    "gallery": {
+      "title": "Portfolio Item",
+      "description": "A design showcase item.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "required": ["imageUrl", "title", "category"]
+    }
+  },
+  "firestore": {
+    "/users/{uid}": {
+      "schema": { "$ref": "users" },
+      "description": "User profile documents."
+    },
+    "/orders/{orderId}": {
+      "schema": { "$ref": "orders" },
+      "description": "Tailoring orders."
+    },
+    "/gallery/{id}": {
+      "schema": { "$ref": "gallery" },
+      "description": "Portfolio items."
+    }
+  }
+}
